@@ -1,7 +1,7 @@
 print("text", 256 , 3.1415 , False) # function print() outputs texts to the console
 
 if 2+2==5:
-    print("some text") # we have to indent this part of code
+  print("some text") # we have to indent this part of code
 
 # It's a simple comment    
 """It's 
@@ -13,12 +13,20 @@ comment"""
 x = 1 # int
 y = 1.0 # float
 z = "1" # str
+w = 1 + 1j # complex
 b = True # bool
 my_list = [1 , 2 , 3] # list
+my_dict = {"name":"James","surname":"Bond"} # dict
+my_tuple = (1,2,3) # tuple
 
 print(type(x))
 print(type(y))
 print(type(z))
+print(type(b))
+print(type(w))
+print(type(my_list))
+print(type(my_dict))
+print(type(my_tuple))
 
 
 # The rules for creating variables
@@ -59,7 +67,7 @@ print("Python is " + x)
 
 # Random number
 import random
-print(random.randrange(1, 10))
+print(random.randrange(1, 10)) # random number between 1 and 9:
 
 
 # Casting
@@ -111,44 +119,3 @@ print(txt.format(name,age))
 # Escape Characters
 
 mystr = "You can put \"some quote here\" "
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# import pygame
- 
-# FPS = 60
- 
-# pygame.init()
-# pygame.display.set_mode((600, 400))
-# clock = pygame.time.Clock()
-# pygame.display.set_caption("Название")
-# screen.fill(0,0,255)
- 
-# # если надо до цикла отобразить
-# # какие-то объекты, обновляем экран
-
-# pygame.display.update()
- 
-# while True:
- 
-#     clock.tick(FPS)
- 
-#     for i in pygame.event.get():
-#         if i.type == pygame.QUIT:
-#             sys.exit()
- 
-    
-
-#     pygame.display.update()
