@@ -118,4 +118,15 @@ print(txt.format(name,age))
 
 # Escape Characters
 
-mystr = "You can put \"some quote here\" "
+mystr = "You can put \"some quote here\" "\
+
+# Some other escape characters
+# \'	Single Quote	
+# \\	Backslash	
+# \n	New Line	
+# \r	Carriage Return	
+# \t	Tab	
+# \b	Backspace	
+# \f	Form Feed	
+# \ooo	Octal value	
+# \xhh	Hex value
