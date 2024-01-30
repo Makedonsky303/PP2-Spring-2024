@@ -23,10 +23,19 @@
 # x in y    (Returns True if a sequence with the specified value is present in the object)	
 # x not in y    (Returns True if a sequence with the specified value is not present in the object)
 
+# List is a collection which is ordered and changeable. Allows duplicate members.
+# Tuple is a collection which is ordered and unchangeable. Allows duplicate members.
+# Set is a collection which is unordered, unchangeable*, and unindexed. No duplicate members.
+# Dictionary is a collection which is ordered** and changeable. No duplicate members.
+
 # LISTS
 # List items are ordered, changeable, and allow duplicate values.
 
 # len(list) − length of the list
+
+# Negative Indexing
+thislist = ["apple", "banana", "cherry"]
+print(thislist[-1])
 
 # Range of Indexes
 thislist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
@@ -173,5 +182,331 @@ print(list1)
 
 # tuple 
 thistuple = ("apple", "banana", "cherry")
-# List items are ordered, changeable, and allow duplicate values.
+# List items are ordered, unchangeable, and allow duplicate values.
+
+# One item tuple, remember the comma:
+
+thistuple = ("apple",)
+print(type(thistuple))
+
+# Tuple items can be of any data type
+
+# Using the tuple() method to make a tuple:
+thistuple = tuple(("apple", "banana", "cherry")) # note the double round-brackets
+
+# as well as with lists we can use len() function,"in" and "not in" operators; here are the same element accesing, 
+# negative indexing,range of indexes
+
+# Convert the tuple into a list to be able to change it:
+
+x = ("apple", "banana", "cherry")
+y = list(x) 
+y[1] = "kiwi" # we can do another manipulations in order to change list
+x = tuple(y)
+
+print(x)
+
+
+# You are allowed to add tuples to tuples.
+# Create a new tuple with the value "orange", and add that tuple:
+
+thistuple = ("apple", "banana", "cherry")
+y = ("orange",)
+thistuple += y
+
+print(thistuple)
+
+
+# The del keyword can delete the tuple completely:
+
+thistuple = ("apple", "banana", "cherry")
+del thistuple
+print(thistuple) #this will raise an error because the tuple no longer exists
+
+# Unpacking a tuple:
+
+fruits = ("apple", "banana", "cherry")
+
+(green, yellow, red) = fruits
+
+print(green)
+print(yellow)
+print(red)
+
+# Using Asterisk*
+# If the number of variables is less than the number of values, you can add an * to the variable name 
+# and the values will be assigned to the variable as a list:
+
+fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
+
+(green, yellow, *red) = fruits
+
+print(green) # apple
+print(yellow) # banana
+print(red) # ['cherry', 'strawberry', 'raspberry']
+
+
+# If the asterisk is added to another variable name than the last, 
+# Python will assign values to the variable until the number 
+# of values left matches the number of variables left.
+
+fruits = ("apple", "mango", "papaya", "pineapple", "cherry")
+
+(green, *tropic, red) = fruits
+
+print(green) # apple
+print(tropic) # ['mango', 'papaya', 'pineapple']
+print(red) # cherry
+
+# Iterate through the items and print the values:
+
+thistuple = ("apple", "banana", "cherry")
+for x in thistuple:
+  print(x)
+# you can also use "Loop Through the Index Numbers" and while loop
+  
+# Join two tuples:
+
+tuple1 = ("a", "b" , "c")
+tuple2 = (1, 2, 3)
+
+tuple3 = tuple1 + tuple2
+print(tuple3)  
+
+# Multiply the fruits tuple by 2
+
+mytuple = fruits * 2
+
+print(mytuple)
+
+# Tuple Methods
+# count() Returns the number of times a specified value occurs in a tuple
+# index()	Searches the tuple for a specified value and returns the position of where it was found
+
+
+# Defining a Set
+myset = {"apple", "banana", "cherry"}
+# It is also possible to use the set() constructor to make a set.
+thisset = set(("apple", "banana", "cherry")) # note the double round-brackets
+
+# True and 1 is considered the same value:
+
+thisset = {"apple", "banana", "cherry", True, 1, 2}
+
+print(thisset) # returns {True, 2, 'banana', 'cherry', 'apple'}
+# False and 0 is considered the same value
+
+# use len() to get length of a set
+# A set can contain different data types:
+
+
+# Access Items
+# Loop through the set, and print the values:
+
+thisset = {"apple", "banana", "cherry"}
+
+for x in thisset:
+  print(x)
+
+
+# Check if "banana" is present in the set:
+
+print("banana" in thisset)  
+
+# Add an item to a set, using the add() method:
+
+thisset.add("orange")
+
+# To add items from another set into the current set, use the update() method.
+
+tropical = {"pineapple", "mango", "papaya"}
+
+thisset.update(tropical)
+# The object in the update() method does not have to be a set, 
+# it can be any iterable object (tuples, lists, dictionaries etc.).
+
+
+# To remove an item in a set, use the remove(), or the discard() method.
+thisset.remove("banana")
+thisset.discard("banana")
+# Note: If the item to remove does not exist, 
+# remove() will raise an error, dicard() will not.
+
+# You can also use the pop() method to remove an item, 
+#but this method will remove a random item, so you cannot be sure what item that gets removed.
+# The return value of the pop() method is the removed item.
+
+thisset = {"apple", "banana", "cherry"}
+x = thisset.pop()
+
+# The clear() method empties the set
+
+# The del keyword will delete the set completely
+
+for x in thisset:
+  print(x)
+
+
+
+# The union() method returns a new set with all items from both sets:
+
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+
+set3 = set1.union(set2)
+print(set3) 
+
+# The update() method inserts the items in set2 into set1:
+
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+
+set1.update(set2)
+print(set1)
+
+
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+# The intersection_update() method will keep only the items 
+# that are present in both sets.
+x.intersection_update(y)
+print(x)
+
+# The intersection() method will return a new set, 
+# that only contains the items that are present in both sets.
+z = x.intersection(y)
+print(z)
+
+
+# The symmetric_difference_update() method will keep only the elements 
+# that are NOT present in both sets. 
+
+# The symmetric_difference() method will return a new set, 
+# that contains only the elements that are NOT present in both sets.
+
+
+
+# Defining Dictionaries
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+# Print the "brand" value of the dictionary:
+print(thisdict["brand"])
+
+
+# Duplicate values will overwrite existing values:
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964,
+  "year": 2020
+}
+print(thisdict) # {'brand': 'Ford', 'model': 'Mustang', 'year': 2020}
+
+# To determine how many items a dictionary has, use the len() function
+
+# Using the dict() method to make a dictionary:
+
+thisdict = dict(name = "John", age = 36, country = "Norway")
+print(thisdict)
+
+# Get the value of the "model" key:
+
+x = thisdict.get("model")
+
+# Get a list of the keys:
+
+x = thisdict.keys()
+
+
+# Add a new item to the original dictionary, 
+# and see that the keys list gets updated as well:
+
+x = thisdict.keys()
+
+print(x) #before the change
+
+thisdict["color"] = "white"
+
+print(x) #after the change
+
+# Get a list of the values:
+
+x = thisdict.values()
+# Just like keys() method , values() also gets updated
+
+
+# The items() method will return each item in a dictionary,
+# as tuples in a list.
+x = thisdict.items()
+
+if "model" in thisdict:
+  print("Yes, 'model' is one of the keys in the thisdict dictionary")
+
+# You can change the value of a specific item by referring to its key name:
+
+# ExampleGet your own Python Server
+# Change the "year" to 2018:
+
+thisdict["year"] = 2018 
+thisdict.update({"year": 2020})
+
+
+# The pop() method removes the item with the specified key name:
+thisdict.pop("model")
+
+# The popitem() method removes the last inserted item
+thisdict.popitem()
+
+# The del keyword removes the item with the specified key name or even whole dictionary:
+del thisdict["model"]
+del thisdict
+
+# The clear() method empties the dictionary
+
+# Print all key names in the dictionary, one by one:
+
+for x in thisdict:
+  print(x)
+
+# Print all values in the dictionary, one by one:
+
+for x in thisdict:
+  print(thisdict[x])  
+
+
+# Loop through both keys and values, by using the items() method:
+
+for x, y in thisdict.items():
+  print(x, y)
+
+# Make a copy of a dictionary with the copy() method or dict function:
+mydict = thisdict.copy()
+mydict = dict(thisdict) 
+
+
+# Create a dictionary that contain three dictionaries:
+
+myfamily = {
+  "child1" : {
+    "name" : "Emil",
+    "year" : 2004
+  },
+  "child2" : {
+    "name" : "Tobias",
+    "year" : 2007
+  },
+  "child3" : {
+    "name" : "Linus",
+    "year" : 2011
+  }
+}
+
+# Print the name of child 2:
+
+print(myfamily["child2"]["name"])
 
