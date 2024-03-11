@@ -1,5 +1,6 @@
 import os
 
+
 def dir(path, list_all): 
 
     for dir_name in os.listdir(path):
